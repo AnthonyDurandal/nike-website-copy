@@ -1,40 +1,46 @@
-# nike-website-copy client
+# Getting Started with Create React App
 
-## The frontend part of the project
-Made with:
-    -react
-    -tailwind css
+This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
+## Available Scripts
 
-## installation
-    -build:
-        `docker build -t nike-client .`
+In the project directory, you can run:
 
-    -run:
-        ``` 
-        docker run \
-            -u 1000 \
-            --name react-container \
-            -ditp 8080:3000 \
-            --mount type=bind,source="$(pwd)",target=/app \
-            react-app 
-        ```
+### `npm start`
 
-    -stop:
-        `docker stop nike-client`
+Runs the app in the development mode.\
+Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
 
-    -remove:
-        `docker rm nike-client`
+The page will reload if you make edits.\
+You will also see any lint errors in the console.
 
-    -create react app:
-        `
-            mkdir temp
-            npx create-react-app ./temp
-            mv ./temp/* ./
-        `
+### `npm test`
 
-To add a screenshot, create an `assets/images` folder in your repository and upload your screenshot to it. Then, using the relative filepath, add it to your README using the following syntax:
+Launches the test runner in the interactive watch mode.\
+See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
 
-    ```md
-    ![alt text](assets/images/screenshot.png)
-    ```
+### `npm run build`
+
+Builds the app for production to the `build` folder.\
+It correctly bundles React in production mode and optimizes the build for the best performance.
+
+The build is minified and the filenames include the hashes.\
+Your app is ready to be deployed!
+
+See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+
+### `npm run eject`
+
+**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+
+If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+
+Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+
+You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+
+## Learn More
+
+You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+
+To learn React, check out the [React documentation](https://reactjs.org/).
