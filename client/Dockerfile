@@ -8,7 +8,7 @@ FROM node:21-alpine3.17
 WORKDIR /client
 
 # Copy the current dir contents into the container at /client
-COPY . ./client
+COPY . /client
 
 # Make port 3000 available to the world outside this container
 EXPOSE 3000
