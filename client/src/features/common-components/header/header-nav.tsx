@@ -1,12 +1,12 @@
-import { NikeIcon, NavDropdown, NAV_DROPDOWN_SECTION } from "@features/common-components";
-import { ReactNode, useState } from "react";
+import { NAV_DROPDOWN_SECTION, NavDropdown, NikeIcon } from "@features/common-components";
+import { useState } from "react";
 
 export const HeaderNav = () => {
   const [navDropdownType, setNavDropdownType] = useState<NAV_DROPDOWN_SECTION | null>(null)
 
   const handleNavHover = (navType: NAV_DROPDOWN_SECTION | null) => {
-    setNavDropdownType(navType);
-    console.log('pute')
+    if(navDropdownType !== navType)
+      setNavDropdownType(navType);
   };
 
     return (
@@ -40,7 +40,6 @@ export const HeaderNav = () => {
               </ul>
             </div>
           </nav>
-          {/* <DropdownNav /> */}
           <NavDropdown navType={navDropdownType} />
           <div id="huhu" className="h-10 w-10 bg-black absolute right-4">
           </div>
@@ -64,21 +63,7 @@ const NavLink = (props: {
         <span className="">
           <li className="mx-2">{props.title}</li>
         </span>
-        {/* <div className="w-10 h-10 bg-black absolute bottom-0"></div> */}
       </div>
     </>
   );
 };
-
-const DropdownNav = () => {
-  return (
-    <div className="bg-slate-50">
-      <div className=" h-10-w-10 bg-black"></div>
-      <div className="relative">
-        <div className="group-hover:block absolute top-0 w-10 h-10 hidden bg-orange-900 z-50">
-          text pr eh
-        </div>
-      </div>
-    </div>
-  );
-}
