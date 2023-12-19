@@ -14,6 +14,6 @@ export const JordanIcon = ({ref, ...props}: SVGProps<SVGSVGElement>
 );
 
 JordanIcon.defaultProps = {
-    "aria-labelledby": "jordan-brand-logo",
-    "aria-describedby": "logo of the Jordan brand"
+    "aria-label": "jordan-brand-logo",
+    "description": "logo of the Jordan brand"
 }

@@ -1,15 +1,18 @@
 import { SVGProps } from "react";
-export const ConverseIcon = ({ref, ...props}: SVGProps<SVGSVGElement>
-) => (
+export const ConverseIcon = ({ ref, ...props }: SVGProps<SVGSVGElement>) => (
   <svg
     width="1em"
     height="1em"
-    fill="#111"
-    viewBox="0 0 39 33"
-    ref={ref}
+    fill="none"
+    aria-hidden="true"
     {...props}
   >
-    <path d="m10.94 25.626-4.236-5.501L.201 22.28l3.734-5.756L.11 10.777l6.59 2.031 4.026-5.474.14 6.785 6.64 2.175-6.594 2.446.028 6.886zm.824 7.239 13.952-16.393L11.806.107h11.697l14.871 16.389-14.8 16.369h-11.81z" />
+    <path
+      fill="currentColor"
+      fillRule="evenodd"
+      d="M21 8.719 7.836 14.303C6.74 14.768 5.818 15 5.075 15c-.836 0-1.445-.295-1.819-.884-.485-.76-.273-1.982.559-3.272.494-.754 1.122-1.446 1.734-2.108-.144.234-1.415 2.349-.025 3.345.275.2.666.298 1.147.298.386 0 .829-.063 1.316-.19L21 8.719z"
+      clipRule="evenodd"
+    />
   </svg>
 );
 
