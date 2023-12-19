@@ -1,5 +1,5 @@
 import { ReactNode } from "react";
-import { ConverseIcon, JordanIcon } from "../logos";
+import { ConverseIcon, JordanIcon } from "../svgs";
 
 export const HeaderLittleNav = () => {
   return (
