@@ -1,3 +1,5 @@
 export * from './jordan-icon'
 export * from './converse-icon'
 export * from './nike-icon'
+export * from './search-icon'
+export * from './heart-icon'
