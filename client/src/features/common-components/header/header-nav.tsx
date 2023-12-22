@@ -35,15 +35,25 @@ export const HeaderNav = () => {
           <div
             className={
               openSearchBar
-                ? "fixed w-screen top-0 px-4 md:px-9 flex-auto flex justify-between bg-primary"
+                ? "fixed w-screen top-0 px-4 md:px-9 flex justify-between bg-primary"
                 : "px-4 md:px-9 flex-auto flex justify-between z-10"
             }
           >
             <NikeIcon className="h-[66px] w-[68px]" />
-            <div className="h-16 w-fit flex items-center">
+            <div
+              className={
+                openSearchBar
+                  ? "h-fit w-fit flex items-center"
+                  : "h-16 w-fit flex items-center"
+              }
+            >
               <div className="w-fit h-fit relative">
                 <input
-                  className="w-45 h-10 px-12 py-2 bg-secondary rounded-[100px] text-base focus:outline-none hover:bg-dark-gray placeholder:hover:text-dark-gray"
+                  className={
+                    openSearchBar
+                      ? "md:w-164 h-10 px-12 py-2 bg-secondary rounded-[100px] text-base focus:outline-none hover:bg-dark-gray placeholder:hover:text-dark-gray"
+                      : "w-45 h-10 px-12 py-2 bg-secondary rounded-[100px] text-base focus:outline-none hover:bg-dark-gray placeholder:hover:text-dark-gray"
+                  }
                   type="text"
                   value={value}
                   placeholder="Search"
@@ -55,11 +65,7 @@ export const HeaderNav = () => {
                   <SearchIcon className="w-6 h-6" />
                 </span>
               </div>
-              {openSearchBar ? (
-                <button className="" onClick={handleCancelSearch}>
-                  Cancel
-                </button>
-              ) : (
+              {!openSearchBar && (
                 <>
                   <span className="mx-3 p-2">
                     <HeartIcon className="w-6 h-6" />
@@ -70,6 +76,11 @@ export const HeaderNav = () => {
                 </>
               )}
             </div>
+            {openSearchBar && (
+              <button className="" onClick={handleCancelSearch}>
+                Cancel
+              </button>
+            )}
           </div>
           {!openSearchBar && <Nav handleNavHover={handleNavHover} />}
         </div>
