@@ -6,14 +6,21 @@ module.exports = {
   theme: {
     extend: {
       colors: {
-        primary: "ffffff",
+        primary: "#ffffff",
         secondary: "#f5f5f5",
-        danger: ""
+        danger: "",
+        dark:"#111111",
+        "dark-gray": "#aaaaaa",
       },
       textColor:{
         primary: "#111111",
         secondary: "#707072",
-        danger: ""
+        danger: "",
+        "dark-gray": "#635959",
+      },
+      spacing:{
+        86: '344px',
+        314: '1256px'
       }
     },
     screens: {
