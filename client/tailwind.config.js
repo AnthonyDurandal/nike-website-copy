@@ -19,6 +19,7 @@ module.exports = {
         "dark-gray": "#635959",
       },
       spacing:{
+        2.5:"10px",
         45: '180px',
         86: '344px',
         164: '656px',
