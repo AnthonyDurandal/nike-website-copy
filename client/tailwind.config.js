@@ -19,7 +19,9 @@ module.exports = {
         "dark-gray": "#635959",
       },
       spacing:{
+        1.5:"6px",
         2.5:"10px",
+        7.5:"30px",
         45: '180px',
         86: '344px',
         164: '656px',
@@ -29,7 +31,13 @@ module.exports = {
     screens: {
         'sm': '600px',
         'md': '1000px',
-      },
+    },
+    fontFamily: {
+      'helvetica-md': ["Helvetica Text Now Medium", "Helvetica", "Arial", "sans-serif"],
+      'nike-gt': ["Nike GT"],
+      'nike-futura': ["Nike Futura"],
+      'nike-glyphs': ["Nike Glyphs"],
+    }
   },
   plugins: [],
 }
