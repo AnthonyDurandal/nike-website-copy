@@ -11,7 +11,7 @@ body {
 
 @font-face {
   font-family: 'Helvetica Text Now Medium';
-  src: local('Helvetica Text Now Medium'), url(../public/fonts/helveticanowtext-medium.ttf) format('truetype');
+  src: local('Helvetica Text Now Medium'), url(../public/fonts/HelveticaNowTextMedium.woff2) format('woff2');
 }
 
 @font-face {
