@@ -14,3 +14,28 @@ body {
   src: local('Helvetica Text Now Medium'), url(../public/fonts/helveticanowtext-medium.ttf) format('truetype');
 }
 
+@font-face {
+  font-family: 'Nike GT';
+  src: local('Nike GT'), url(../public/fonts/Nike-TG.woff2) format('woff2');
+}
+
+@font-face {
+  font-family: 'Nike Futura';
+  src: local('Nike Futura'), url(../public/fonts/Nike-Futura.woff2) format('woff2');
+}
+
+@font-face {
+  font-family: 'Nike Glyphs';
+  src: local('Nike Glyphs'), url(../public/fonts/nike-glyphs.woff) format('woff2');
+}
+
+@font-face {
+  font-family: 'Helvetica Now Display Medium';
+  src: local('Helvetica Now Display Medium'), url(../public/fonts/HelveticaNowDisplayMedium.woff2) format('woff2');
+}
+
+@font-face {
+  font-family: 'Helvetica Now Text';
+  src: local('Helvetica Now Text'), url(../public/fonts/HelveticaNowText.woff2) format('woff2');
+}
+
