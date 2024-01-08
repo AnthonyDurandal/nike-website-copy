@@ -1,9 +1,9 @@
 import { SVGProps } from "react";
 export const FacebookIcon = ({ ref, ...props }: SVGProps<SVGSVGElement>) => (
   <svg
-    width="1em"
-    height="1em"
-    fill="#111"
+    // width="1em"
+    // height="1em"
+    // fill="#111"
     viewBox="0 0 24 24"
     aria-describedby={""}
     {...props}
