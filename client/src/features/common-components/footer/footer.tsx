@@ -1,4 +1,4 @@
-import { ReactNode, useState } from "react";
+import { ReactNode, useEffect, useState } from "react";
 import {
   FacebookIcon,
   InstagramIcon,
@@ -8,18 +8,12 @@ import {
 } from "@features/common-components";
 // import tailwindConfig from "tailwind.config";
 
-
-
-
 export const Footer = (props: {}) => {
-  // const [mobileWidth,] = useState(window.innerWidth<tailwindConfig.theme?.extend?.screens)
-  // console.log(tailwindConfig.theme?.extend?.screens)
-
   return (
-    <footer className="w-full h-fit bg-dark px-5 md:px-10 pt-10">
+    <footer className="w-full h-fit bg-dark pt-5 px-1.5 sm:px-5  md:px-10 sm:pt-10">
       <div className="flex flex-nowrap pb-4">
-        <div className="flex-auto grid grid-cols-3 md:grid-cols-4">
-          <div className="px-1.5">
+        <div className="w-full grid grid-cols-1 sm:flex-auto sm:grid-cols-3 md:grid-cols-4">
+          <div className="w-full px-4 py-2 sm:px-1.5 sm:py-0">
             <ul>
               <FooterListItemLink innerText="gift cards" to="#" uppercase />
               <FooterListItemLink innerText="find a store" to="#" uppercase />
@@ -30,12 +24,13 @@ export const Footer = (props: {}) => {
               />
               <FooterListItemLink innerText="nike x nba" to="#" uppercase />
               <FooterListItemButton
-                innerText="send us feedback"
                 onClick={() => {
                   console.log("show feedback modal");
                 }}
                 uppercase
-              />
+              >
+                send us feedback
+              </FooterListItemButton>
             </ul>
           </div>
           <FooterColumn title="get help" to="#">
@@ -66,7 +61,7 @@ export const Footer = (props: {}) => {
           </FooterColumn>
         </div>
 
-        <ul className="sm:w-1/4 h-fit flex flex-wrap justify-end">
+        <ul className="hidden sm:w-1/4 h-fit sm:flex flex-wrap justify-end">
           <SocialMediaIconContainer
             icon={<FacebookIcon className="w-7.5 h-9 fill-dark-gray" />}
           />
@@ -114,6 +109,9 @@ const FooterListItem = (props: {
   children: ReactNode;
   uppercase?: boolean;
 }) => {
+  if (props.uppercase) {
+    // console.log(props.uppercase);
+  }
   return (
     <li
       className={
@@ -142,7 +140,7 @@ const FooterListItemLink = (props: {
 };
 
 const FooterListItemButton = (props: {
-  innerText: string;
+  children: ReactNode;
   uppercase?: boolean;
   onClick: React.MouseEventHandler<HTMLButtonElement> | undefined;
 }) => {
@@ -152,23 +150,87 @@ const FooterListItemButton = (props: {
         onClick={props.onClick}
         className={props.uppercase ? "uppercase" : ""}
       >
-        {props.innerText}
+        {props.children}
       </button>
     </FooterListItem>
   );
 };
 
-const FooterColumn = (props: { title:string, to: string, children: ReactNode }) => {
-  return (
-    <div className="px-1.5">
-      {
+const FooterColumn = (props: {
+  title: string;
+  to: string;
+  children: ReactNode | string;
+}) => {
+  const [isMobileScreen, setIsMobileScreen] = useState<boolean>(
+    checkIsMobileScreen()
+  ); 
+  const [open, setOpen] = useState<boolean>(false);
 
+  function checkIsMobileScreen() : boolean{
+    return window.innerWidth < 600;
+  }
+
+  const handleCollapse:
+    | React.MouseEventHandler<HTMLButtonElement>
+    | undefined = () => {
+    setOpen(!open);
+  };
+
+  useEffect(() => {
+    const updateM = () => {
+      const mobileScreen = checkIsMobileScreen();
+      const shouldUpdate: boolean = mobileScreen !== isMobileScreen; // to avoid useless re-renders
+      if (shouldUpdate) {
+        setIsMobileScreen(mobileScreen);
       }
-      <div className="">
-        {props.title}
+    };
+
+    window.addEventListener("resize", updateM);
+
+    return () => window.removeEventListener('resize', updateM);
+  
+  }, [isMobileScreen]);
+
+  useEffect(()=>{},[isMobileScreen])
+
+
+  return (
+    <>
+      <div className="p-4 sm:py-0 sm:px-1.5">
+        {isMobileScreen ? (
+          <>
+            <button
+              className="w-full mb-[3px] flex justify-between text-sm uppercase text-white"
+              onClick={handleCollapse}
+            >
+              <span className="font-nike-gt">{props.title}</span>
+              {open ? <i className="">&#8722;</i> : <i className="">&#43;</i>}
+            </button>
+          </>
+        ) : (
+          <ul>
+            <FooterListItemLink
+              innerText={props.title}
+              to={props.to}
+              uppercase
+            />
+            {props.children}
+          </ul>
+        )}
       </div>
-      <ul>{props.children}</ul>
-    </div>
+      <div className={isMobileScreen ? "py-2 px-4" : "hidden"}>
+        <ul
+          className={
+            open
+              ? "max-h-125  transition-max-height duration-300"
+              : "max-h-0 opacity-0 overflow-hidden transition-max-height duration-300"
+          }
+        >
+          {props.children}
+        </ul>
+      </div>
+      {/* transition */}
+    </>
   );
 };
 
