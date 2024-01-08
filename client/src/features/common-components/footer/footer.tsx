@@ -11,7 +11,7 @@ import {
 export const Footer = (props: {}) => {
   return (
     <footer className="w-full h-fit bg-dark pt-5 px-1.5 sm:px-5  md:px-10 sm:pt-10">
-      <div className="flex flex-nowrap pb-4">
+      <div className="grid grid-cols-1 sm:flex sm:flex-nowrap pb-4">
         <div className="w-full grid grid-cols-1 sm:flex-auto sm:grid-cols-3 md:grid-cols-4">
           <div className="w-full px-4 py-2 sm:px-1.5 sm:py-0">
             <ul>
@@ -61,7 +61,7 @@ export const Footer = (props: {}) => {
           </FooterColumn>
         </div>
 
-        <ul className="hidden sm:w-1/4 h-fit sm:flex flex-wrap justify-end">
+        <ul className="sm:w-1/4 h-fit flex flex-wrap sm:justify-end">
           <SocialMediaIconContainer
             icon={<FacebookIcon className="w-7.5 h-9 fill-dark-gray" />}
           />
@@ -76,29 +76,31 @@ export const Footer = (props: {}) => {
           />
         </ul>
       </div>
-      <div className="grid grid-cols-2 text-xs">
+      <div className="grid grid-cols-1 sm:grid-cols-2 text-xs">
         <div className="flex flex-col-reverse flex-end">
           <div className="px-2 pt-3">
-            <div className="flex">
+            <div className="sm:flex">
               <span className="text-white">
                 <a className="flex" href="#">
                   <LocationIcon className="w-4 h-4" />
                   <span className="mx-2">United States</span>
                 </a>
               </span>
-              <span className="ml-4 text-secondary">
-                © 2023 Nike, Inc. All Rights Reserved
-              </span>
+              <div className="pt-5 pb-6 sm:py-0 sm:ml-4">
+                <span className="text-secondary">
+                  © 2023 Nike, Inc. All Rights Reserved
+                </span>
+              </div>
             </div>
           </div>
         </div>
-        <ul className="flex flex-wrap justify-end">
-          <FooterC text="Guides" />
-          <FooterC text="Terms of Sale" />
-          <FooterC text="Terms of Use" />
-          <FooterC text="Nike Privacy Policy" />
-          <FooterC text="Your Privacy Choices" />
-          <FooterC text="CA Supply Chain Act" />
+        <ul className="grid grid-cols-1 sm:flex sm:flex-wrap sm:justify-end">
+          <FooterBButton text="Guides" onClick={()=>{}} />
+          <FooterBLink text="Terms of Sale" to="" />
+          <FooterBLink text="Terms of Use" to="" />
+          <FooterBLink text="Nike Privacy Policy" to="" />
+          <FooterBLink text="Your Privacy Choices" to="" />
+          <FooterBLink text="CA Supply Chain Act" to="" />
         </ul>
       </div>
     </footer>
@@ -222,26 +224,45 @@ const FooterColumn = (props: {
         <ul
           className={
             open
-              ? "max-h-125  transition-max-height duration-300"
-              : "max-h-0 opacity-0 overflow-hidden transition-max-height duration-300"
+              ? "max-h-125 transition-opacity-[0.3s] transition-max-height duration-300"
+              : "max-h-0 transition-opacity-[0.3s] opacity-0 overflow-hidden transition-max-height duration-500"
           }
         >
           {props.children}
         </ul>
       </div>
-      {/* transition */}
     </>
   );
 };
 
-const FooterC = (props: { text: string }) => {
+const FooterC = (props: { children: ReactNode }) => {
   return (
     <li className="p-2 text-xs text-secondary whitespace-nowrap">
-      {props.text}
+      {props.children}
     </li>
   );
 };
 
+const FooterBLink = (props: {text: string, to: string}) => {
+  return (
+    <FooterC>
+      <a href={props.to}>{props.text}</a>
+    </FooterC>
+  );
+}
+
+const FooterBButton = (props: {text: string, onClick: React.MouseEventHandler<HTMLButtonElement>}) => {
+  return (
+    <FooterC>
+      <button onClick={props.onClick}>{props.text}</button>
+    </FooterC>
+  );
+}
+
 const SocialMediaIconContainer = (props: { icon: ReactNode }) => {
   return <li className="ml-4">{props.icon}</li>;
 };
+
+const FooterGuidesTooltip = () => {
+  return (<div></div>)
+}
