@@ -1,4 +1,6 @@
+export * from './account-icon'
 export * from './bag-icon'
 export * from './heart-icon'
 export * from './location-icon'
+export * from './menu-icon'
 export * from './search-icon'
