@@ -94,8 +94,8 @@ export const Footer = (props: {}) => {
             </div>
           </div>
         </div>
-        <ul className="grid grid-cols-1 sm:flex sm:flex-wrap sm:justify-end">
-          <FooterBButton text="Guides" onClick={()=>{}} />
+        <ul className="grid grid-cols-1 sm:flex sm:flex-wrap sm:justify-end relative">
+          <FooterBButton text="Guides" onClick={() => {}} />
           <FooterBLink text="Terms of Sale" to="" />
           <FooterBLink text="Terms of Use" to="" />
           <FooterBLink text="Nike Privacy Policy" to="" />
@@ -165,10 +165,10 @@ const FooterColumn = (props: {
 }) => {
   const [isMobileScreen, setIsMobileScreen] = useState<boolean>(
     checkIsMobileScreen()
-  ); 
+  );
   const [open, setOpen] = useState<boolean>(false);
 
-  function checkIsMobileScreen() : boolean{
+  function checkIsMobileScreen(): boolean {
     return window.innerWidth < 600;
   }
 
@@ -189,12 +189,10 @@ const FooterColumn = (props: {
 
     window.addEventListener("resize", updateM);
 
-    return () => window.removeEventListener('resize', updateM);
-  
+    return () => window.removeEventListener("resize", updateM);
   }, [isMobileScreen]);
 
-  useEffect(()=>{},[isMobileScreen])
-
+  useEffect(() => {}, [isMobileScreen]);
 
   return (
     <>
@@ -243,26 +241,62 @@ const FooterC = (props: { children: ReactNode }) => {
   );
 };
 
-const FooterBLink = (props: {text: string, to: string}) => {
+const FooterBLink = (props: { text: string; to: string }) => {
   return (
     <FooterC>
       <a href={props.to}>{props.text}</a>
     </FooterC>
   );
-}
+};
 
-const FooterBButton = (props: {text: string, onClick: React.MouseEventHandler<HTMLButtonElement>}) => {
+const FooterBButton = (props: {
+  text: string;
+  onClick: React.MouseEventHandler<HTMLButtonElement>;
+}) => {
   return (
     <FooterC>
-      <button onClick={props.onClick}>{props.text}</button>
+      <div className="group">
+        <button onClick={props.onClick}>{props.text}</button>
+        <FooterGuidesTooltip />
+      </div>
     </FooterC>
   );
-}
+};
 
 const SocialMediaIconContainer = (props: { icon: ReactNode }) => {
   return <li className="ml-4">{props.icon}</li>;
 };
 
 const FooterGuidesTooltip = () => {
-  return (<div></div>)
-}
+  return (
+    <div className="invisible group-hover:visible min-w-[320px] py-2.5 absolute bottom-7.5 left-0 sm:bottom-1/2 z-10 bg-dark">
+      <ul className="px-5 py-7 border-solid border-2 border-secondary grid grid-cols-3 text-white">
+        <FooterGuidesListItem productName="Nike" to="#" />
+        <FooterGuidesListItem productName="AdaptNike" to="#" />
+        <FooterGuidesListItem productName="AirNike" to="#" />
+        <FooterGuidesListItem productName="Air" to="#" />
+        <FooterGuidesListItem productName="Force" to="#" />
+        <FooterGuidesListItem productName="1Nike" to="#" />
+        <FooterGuidesListItem productName="Air" to="#" />
+        <FooterGuidesListItem productName="MaxNike" to="#" />
+        <FooterGuidesListItem productName="FlyEaseNike" to="#" />
+        <FooterGuidesListItem productName="FlyknitNike" to="#" />
+        <FooterGuidesListItem productName="FlyleatherNike" to="#" />
+        <FooterGuidesListItem productName="FreeNike" to="#" />
+        <FooterGuidesListItem productName="JoyrideNike" to="#" />
+        <FooterGuidesListItem productName="ReactNike" to="#" />
+        <FooterGuidesListItem productName="VaporflyNike" to="#" />
+        <FooterGuidesListItem productName="ZoomXSpace" to="#" />
+        <FooterGuidesListItem productName="Hippie" to="#" />
+      </ul>
+    </div>
+  );
+};
+
+const FooterGuidesListItem = (props: { productName: string; to: string }) => {
+  return (
+    <li className="px-1.5 pt-3">
+      <a href={props.to}>{props.productName}</a>
+    </li>
+  );
+};
