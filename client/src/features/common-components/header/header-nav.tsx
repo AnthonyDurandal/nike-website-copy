@@ -1,7 +1,9 @@
 import { ReactNode, useState } from "react";
 import {
+  AccountIcon,
   BagIcon,
   HeartIcon,
+  MenuIcon,
   NAV_DROPDOWN_SECTION,
   NavDropdown,
   NikeIcon,
@@ -80,6 +82,12 @@ export const HeaderNav = () => {
                     <span className="p-2">
                       <BagIcon className="w-6 h-6" />
                     </span>
+                    <span className="p-2">
+                      <AccountIcon className="w-6 h-6" />
+                    </span>
+                    <span className="p-2">
+                      <MenuIcon className="w-6 h-6" />
+                    </span>
                   </>
                 )}
               </div>
@@ -109,7 +117,7 @@ const NavLink = (props: {
   return (
     <>
       <div
-        className="p-3 py-4 hover:border-b-2 border-b-current flex-wrap overflow-hidden"
+        className="p-3 py-4 hover:border-b-2 border-b-current flex-wrap"
         // className="flex items-center hover:border-b-2 hover:pt-[1px] border-b-current flex-wrap overflow-hidden"
         onMouseEnter={(e) => {
           props.onDragOver(e);
@@ -126,9 +134,9 @@ const Nav = (props: {
   handleNavHover: (navType: NAV_DROPDOWN_SECTION | null) => void;
 }) => {
   return (
-    <div className="absolute w-screen h-fit flex justify-center z-0">
-      <nav className="w-[calc(100%-690px)] max-w-314 mx-auto h-[60px] flexoverflow-hidden bg-primary ">
-        <ul className="flex h-full">
+    <div className="hidden absolute w-screen h-fit md:flex justify-center z-0">
+      <nav className="w-[calc(100%-690px)] max-w-314 mx-auto h-[60px] overflow-hidden bg-primary ">
+        <ul className="flex flex-wrap justify-center h-full">
           <NavLink
             title="New & featured"
             onDragOver={() => props.handleNavHover("NEWS_FEATURED")}
@@ -194,6 +202,8 @@ const PopularSearchLink = (props: { children: string; link?: string }) => {
 };
 
 const TopSuggestions = () => {
+  const [loadingData, setLoadingData] = useState<boolean>(false);
+
   return (
     <SearchResultContainer>
       <div className="w-1/6 pr-5 text-secondary flex flex-col">
@@ -204,6 +214,7 @@ const TopSuggestions = () => {
           textSearch="dd"
         />
       </div>
+      <div className="w-full bg-black"></div>
     </SearchResultContainer>
   );
 };
