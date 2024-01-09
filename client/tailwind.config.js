@@ -23,6 +23,7 @@ module.exports = {
         2.5:"10px",
         7.5:"30px",
         45: '180px',
+        80: '320px',
         86: '344px',
         125: '500px',
         164: '656px',
@@ -31,7 +32,7 @@ module.exports = {
     },
     screens: {
         'sm': '600px',
-        'md': '1000px',
+        'md': '960px',
     },
     fontFamily: {
       'helvetica-md': ["Helvetica Text Now Medium", "Helvetica", "Arial", "sans-serif"],
