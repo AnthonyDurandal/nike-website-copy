@@ -3,6 +3,7 @@ import {
   AccountIcon,
   BagIcon,
   HeartIcon,
+  HorizontalNav,
   MenuIcon,
   NAV_DROPDOWN_SECTION,
   NavDropdown,
@@ -30,6 +31,10 @@ export const HeaderNav = () => {
     setOpenSearchBar(false);
   };
 
+  const handleSearchClick = () => {
+    setOpenSearchBar(true);
+  }
+
   return (
     <>
       <div className="">
@@ -48,20 +53,26 @@ export const HeaderNav = () => {
                   : "px-4 md:px-9 flex-auto flex justify-between"
               }
             >
-              <NikeIcon className="h-[66px] w-[68px]" />
+              <NikeIcon className="h-[60px] w-[68px]" />
               <div
                 className={
                   openSearchBar
-                    ? "h-fit w-fit flex items-center"
-                    : "h-16 w-fit flex items-center"
+                    ? "h-fit w-fit flex pt-2"
+                    : "h-16 w-fit flex pt-2"
                 }
               >
-                <div className="w-fit h-fit relative">
+                <div
+                  className={
+                    openSearchBar
+                      ? "w-fit h-10 relative"
+                      : "w-fit h-10 relative"
+                  }
+                >
                   <input
                     className={
                       openSearchBar
-                        ? "md:w-164 h-10 px-12 py-2 bg-secondary rounded-[100px] text-base focus:outline-none hover:bg-dark-gray placeholder:hover:text-dark-gray"
-                        : "w-45 h-10 px-12 py-2 bg-secondary rounded-[100px] text-base focus:outline-none hover:bg-dark-gray placeholder:hover:text-dark-gray"
+                        ? "md:w-164 px-12 py-2 bg-secondary rounded-[100px] text-base focus:outline-none hover:bg-dark-gray placeholder:hover:text-dark-gray"
+                        : "hidden md:block w-45 px-12 py-2 bg-secondary rounded-[100px] text-base focus:outline-none hover:bg-dark-gray placeholder:hover:text-dark-gray"
                     }
                     type="text"
                     value={value}
@@ -70,23 +81,28 @@ export const HeaderNav = () => {
                       handleChange(e.target.value);
                     }}
                   />
-                  <span className="absolute top-0 left-0 h-full px-2 py-[6px]">
+                  <button
+                    onClick={handleSearchClick}
+                    className="md:absolute md:top-0 md:left-0 w-fit h-full mr-2 md:mr-0 px-2 py-1.5"
+                  >
                     <SearchIcon className="w-6 h-6" />
-                  </span>
+                  </button>
                 </div>
                 {!openSearchBar && (
                   <>
-                    <span className="mx-3 p-2">
+                    <span className="hidden md:block mx-3 p-1.5">
                       <HeartIcon className="w-6 h-6" />
                     </span>
-                    <span className="p-2">
+                    <span className="mr-2 p-2">
                       <BagIcon className="w-6 h-6" />
                     </span>
-                    <span className="p-2">
-                      <AccountIcon className="w-6 h-6" />
-                    </span>
-                    <span className="p-2">
-                      <MenuIcon className="w-6 h-6" />
+                    <span className="flex md:hidden">
+                      <span className="mr-2 p-2">
+                        <AccountIcon className="w-6 h-6" />
+                      </span>
+                      <span className="p-2">
+                        <MenuIcon className="w-6 h-6" />
+                      </span>
                     </span>
                   </>
                 )}
@@ -100,67 +116,12 @@ export const HeaderNav = () => {
             {/* {openSearchBar && <PopularSearch />} */}
             {openSearchBar && <TopSuggestions />}
           </div>
-          {!openSearchBar && <Nav handleNavHover={handleNavHover} />}
+          {!openSearchBar && <HorizontalNav handleNavHover={handleNavHover} />}
         </div>
         <NavDropdown navType={navDropdownType} />
         <div id="huhu" className="h-10 w-10 bg-black absolute right-4"></div>
       </div>
     </>
-  );
-};
-
-const NavLink = (props: {
-  title: string;
-  link?: string;
-  onDragOver: React.MouseEventHandler<HTMLDivElement>;
-}) => {
-  return (
-    <>
-      <div
-        className="p-3 py-4 hover:border-b-2 border-b-current flex-wrap"
-        // className="flex items-center hover:border-b-2 hover:pt-[1px] border-b-current flex-wrap overflow-hidden"
-        onMouseEnter={(e) => {
-          props.onDragOver(e);
-          console.log("hehe");
-        }}
-      >
-        <li className="whitespace-nowrap">{props.title}</li>
-      </div>
-    </>
-  );
-};
-
-const Nav = (props: {
-  handleNavHover: (navType: NAV_DROPDOWN_SECTION | null) => void;
-}) => {
-  return (
-    <div className="hidden absolute w-screen h-fit md:flex justify-center z-0">
-      <nav className="w-[calc(100%-690px)] max-w-314 mx-auto h-[60px] overflow-hidden bg-primary ">
-        <ul className="flex flex-wrap justify-center h-full">
-          <NavLink
-            title="New & featured"
-            onDragOver={() => props.handleNavHover("NEWS_FEATURED")}
-          />
-          <NavLink title="Men" onDragOver={() => props.handleNavHover("MEN")} />
-          <NavLink
-            title="Women"
-            onDragOver={() => props.handleNavHover("WOMEN")}
-          />
-          <NavLink
-            title="Kids"
-            onDragOver={() => props.handleNavHover("KIDS")}
-          />
-          <NavLink
-            title="Accessories"
-            onDragOver={() => props.handleNavHover("ACCESSORIES")}
-          />
-          <NavLink
-            title="Sale"
-            onDragOver={() => props.handleNavHover("SALE")}
-          />
-        </ul>
-      </nav>
-    </div>
   );
 };
 
