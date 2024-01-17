@@ -11,6 +11,7 @@ module.exports = {
         danger: "",
         dark:"#111111",
         "dark-gray": "#aaaaaa",
+        "mid-gray": "#e5e5e5",
       },
       textColor:{
         primary: "#111111",
@@ -22,6 +23,7 @@ module.exports = {
         1.5:"6px",
         2.5:"10px",
         7.5:"30px",
+        14.5:"58px",
         45: '180px',
         80: '320px',
         86: '344px',
