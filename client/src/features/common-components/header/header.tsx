@@ -1,13 +1,13 @@
-import { HeaderLittleNav, HeaderNav } from "@features/common-components";
+import { Banner, BannerType, HeaderLittleNav, HeaderNav,  } from "@features/common-components";
+
+const bannerData : BannerType[] = [{action:"Sign up", message:"Members: Free shipping on Orders $50+"},{action:"don't", message:"Huhu"}]  
 
 export const Header = () => {
     return (
-      <header>
+      <header className="font-helvetica-md">
         <HeaderLittleNav />
         <HeaderNav />
-        <div className="bg-secondary h-10 w-full">
-
-        </div>
+        <Banner banners={bannerData}/>
       </header>
     );
 };
