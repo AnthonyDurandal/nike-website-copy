@@ -9,6 +9,8 @@ import {
   NavDropdown,
   NikeIcon,
   SearchIcon,
+  SvgButton,
+  SvgLink,
 } from "@features/common-components";
 
 export const HeaderNav = () => {
@@ -90,19 +92,19 @@ export const HeaderNav = () => {
                 </div>
                 {!openSearchBar && (
                   <>
-                    <span className="hidden md:block mx-3 p-1.5">
+                    <SvgLink className="hidden md:block mx-3 p-1.5" to="#">
                       <HeartIcon className="w-6 h-6" />
-                    </span>
-                    <span className="mr-2 p-2">
+                    </SvgLink>
+                    <SvgLink className="mr-2 p-2" to="#">
                       <BagIcon className="w-6 h-6" />
-                    </span>
+                    </SvgLink>
                     <span className="flex md:hidden">
-                      <span className="mr-2 p-2">
+                      <SvgLink className="mr-2 p-2" to="#">
                         <AccountIcon className="w-6 h-6" />
-                      </span>
-                      <span className="p-2">
+                      </SvgLink>
+                      <SvgButton className="p-2">
                         <MenuIcon className="w-6 h-6" />
-                      </span>
+                      </SvgButton>
                     </span>
                   </>
                 )}
