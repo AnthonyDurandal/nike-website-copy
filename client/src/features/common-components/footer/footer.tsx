@@ -6,7 +6,6 @@ import {
   TwitterIcon,
   YoutubeIcon,
 } from "@features/common-components";
-// import tailwindConfig from "tailwind.config";
 
 export const Footer = (props: {}) => {
   return (
@@ -63,16 +62,16 @@ export const Footer = (props: {}) => {
 
         <ul className="sm:w-1/4 h-fit flex flex-wrap sm:justify-end">
           <SocialMediaIconContainer
-            icon={<FacebookIcon className="w-7.5 h-9 fill-dark-gray" />}
-          />
-          <SocialMediaIconContainer
             icon={<TwitterIcon className="w-7.5 h-9 fill-dark-gray" />}
           />
           <SocialMediaIconContainer
-            icon={<InstagramIcon className="w-7.5 h-9 fill-dark-gray" />}
+            icon={<FacebookIcon className="w-7.5 h-9 fill-dark-gray" />}
           />
           <SocialMediaIconContainer
             icon={<YoutubeIcon className="w-7.5 h-9 fill-dark-gray" />}
+          />
+          <SocialMediaIconContainer
+            icon={<InstagramIcon className="w-7.5 h-9 fill-dark-gray" />}
           />
         </ul>
       </div>
