@@ -13,6 +13,6 @@ export const InstagramIcon = ({ ref, ...props }: SVGProps<SVGSVGElement>) => (
 );
 
 InstagramIcon.defaultProps = {
-  "aria-labelledby": "converse-brand-logo",
-  "aria-describedby": "logo of the Converse brand",
+  "aria-labelledby": "instagram-logo",
+  "aria-describedby": "logo of Instagram",
 };

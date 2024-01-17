@@ -13,6 +13,6 @@ export const YoutubeIcon = ({ ref, ...props }: SVGProps<SVGSVGElement>) => (
 );
 
 YoutubeIcon.defaultProps = {
-  "aria-labelledby": "converse-brand-logo",
-  "aria-describedby": "logo of the Converse brand",
+  "aria-labelledby": "youtube-logo",
+  "aria-describedby": "logo of Youtube",
 };

@@ -1,9 +1,6 @@
 import { SVGProps } from "react";
-export const FacebookIcon = ({ ref, ...props }: SVGProps<SVGSVGElement>) => (
+export const TwitterIcon = ({ ref, ...props }: SVGProps<SVGSVGElement>) => (
   <svg
-    // width="1em"
-    // height="1em"
-    // fill="#111"
     viewBox="0 0 24 24"
     aria-describedby={""}
     {...props}
@@ -12,7 +9,7 @@ export const FacebookIcon = ({ ref, ...props }: SVGProps<SVGSVGElement>) => (
   </svg>
 );
 
-FacebookIcon.defaultProps = {
-  "aria-labelledby": "converse-brand-logo",
-  "aria-describedby": "logo of the Converse brand",
+TwitterIcon.defaultProps = {
+  "aria-labelledby": "Twitter logo",
+  "aria-describedby": "logo of Twitter",
 };
