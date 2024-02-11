@@ -1,11 +1,9 @@
 FROM node:21-alpine3.17 
 WORKDIR /client
 # current node version at that time (12/2023)
-# apline bc it's the lightest 
-FROM node:21-alpine3.17 
+# apline bc it's the lightest
 
 # Set the working directory to /app
-WORKDIR /client
 
 # Copy the current dir contents into the container at /client
 COPY . /client
